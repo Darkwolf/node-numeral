@@ -1,0 +1,41 @@
+{
+  "name": "@darkwolf/numeral.mjs",
+  "version": "1.0.0",
+  "description": "Numeral",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./lib/": "./lib/",
+    "./package.json": "./package.json"
+  },
+  "engines": {
+    "node": ">=12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darkwolf/node-numeral.git"
+  },
+  "keywords": [
+    "darkwolf",
+    "dw",
+    "numeral",
+    "mjs",
+    "number",
+    "float",
+    "integer",
+    "builder",
+    "converter"
+  ],
+  "author": "Pavel Wolf",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Darkwolf/node-numeral/issues"
+  },
+  "homepage": "https://github.com/Darkwolf/node-numeral#readme",
+  "dependencies": {
+    "@darkwolf/helper.mjs": "^1.0.2"
+  }
+}
