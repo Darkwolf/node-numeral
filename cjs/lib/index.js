@@ -70,7 +70,7 @@ class Numeral {
   }
 
   setValue(value) {
-    this.value = value || Numeral.value
+    this.value = value ? Numeral.parse(value) : Numeral.value
     return this
   }
 
@@ -94,12 +94,20 @@ class Numeral {
     return this
   }
 
+  finite() {
+    return this.setValue(Helper.finite(this.value))
+  }
+
   float() {
     return this.setValue(Helper.float(this.value))
   }
 
   integer() {
     return this.setValue(Helper.integer(this.value))
+  }
+
+  safeInteger() {
+    return this.setValue(Helper.safeInteger(this.value))
   }
 
   abs() {
@@ -147,13 +155,10 @@ class Numeral {
   }
 }
 Numeral.value = 0
+Numeral.finite = Helper.finite
 Numeral.float = Helper.float
 Numeral.integer = Helper.integer
-Numeral.abs = value => Math.abs(value)
-Numeral.ceil = value => Math.ceil(value)
-Numeral.floor = value => Math.floor(value)
-Numeral.pow = (value, exponent) => Math.pow(value, exponent)
-Numeral.round = value => Math.round(value)
+Numeral.safeInteger = Helper.safeInteger
 Numeral.isFinite = Helper.isFinite
 Numeral.isFloat = Helper.isFloat
 Numeral.isInteger = Helper.isInteger
@@ -167,7 +172,14 @@ Numeral.isNonNegative = Helper.isNonNegative
 Numeral.isNonPositive = Helper.isNonPositive
 Numeral.isNatural = Helper.isNatural
 Numeral.isWhole = Helper.isWhole
+Numeral.abs = value => Math.abs(value)
+Numeral.ceil = value => Math.ceil(value)
+Numeral.floor = value => Math.floor(value)
+Numeral.pow = (value, exponent) => Math.pow(value, exponent)
+Numeral.round = value => Math.round(value)
+Numeral.parse = value => Helper.isNumber(value) ? value : value instanceof Numeral ? value.value : parseFloat(value)
 Numeral.isEven = value => Helper.isInteger(value) && !(value % 2)
 Numeral.isOdd = value => Helper.isInteger(value) && !!(value % 2)
+Numeral.from = value => new Numeral(value)
 
 module.exports = Numeral

@@ -2,8 +2,10 @@ import Helper from '@darkwolf/helper.mjs'
 
 export default class Numeral {
   static value = 0
+  static finite = Helper.finite
   static float = Helper.float
   static integer = Helper.integer
+  static safeInteger = Helper.safeInteger
   static isFinite = Helper.isFinite
   static isFloat = Helper.isFloat
   static isInteger = Helper.isInteger
@@ -44,6 +46,14 @@ export default class Numeral {
 
   static isOdd(value) {
     return Helper.isInteger(value) && !!(value % 2)
+  }
+
+  static parse(value) {
+    return Helper.isNumber(value) ? value : value instanceof Numeral ? value.value : parseFloat(value)
+  }
+
+  static from(value) {
+    return new Numeral(value)
   }
 
   constructor(value) {
@@ -115,7 +125,7 @@ export default class Numeral {
   }
 
   setValue(value) {
-    this.value = value || Numeral.value
+    this.value = value ? Numeral.parse(value) : Numeral.value
     return this
   }
 
@@ -139,12 +149,20 @@ export default class Numeral {
     return this
   }
 
+  finite() {
+    return this.setValue(Helper.finite(this.value))
+  }
+
   float() {
     return this.setValue(Helper.float(this.value))
   }
 
   integer() {
     return this.setValue(Helper.integer(this.value))
+  }
+
+  safeInteger() {
+    return this.setValue(Helper.safeInteger(this.value))
   }
 
   abs() {

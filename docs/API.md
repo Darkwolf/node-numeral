@@ -8,11 +8,19 @@
 #### `static` Numeral.value
 * returns: <[number][number]> Defaults to `0`.
 
+#### `static` Numeral.finite(value)
+* `value` <[string][string] | [number][number]>
+* returns: <[number][number]>
+
 #### `static` Numeral.float(value)
 * `value` <[string][string] | [number][number]>
 * returns: <[number][number]>
 
 #### `static` Numeral.integer(value)
+* `value` <[string][string] | [number][number]>
+* returns: <[number][number]>
+
+#### `static` Numeral.safeInteger(value)
 * `value` <[string][string] | [number][number]>
 * returns: <[number][number]>
 
@@ -35,6 +43,10 @@
 
 #### `static` Numeral.round(value)
 * `value` <[number][number]>
+* returns: <[number][number]>
+
+#### `static` Numeral.parse(value)
+* `value` <[string][string] | [number][number] | [Numeral](#class-numeral)>
 * returns: <[number][number]>
 
 #### `static` Numeral.isFinite(value)
@@ -97,6 +109,10 @@ Equivalent to <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>
 #### `static` Numeral.isOdd(value)
 * `value` <[any][Object]>
 * returns: <[boolean][boolean]>
+
+#### `static` Numeral.from(value)
+* `value` <[string][string] | [number][number]>
+* returns: <[Numeral](#class-numeral)>
 
 #### `init` new Numeral([value])
 * `value` <[number][number]>
@@ -167,10 +183,16 @@ Equivalent to <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>
 * `value` <[number][number]>
 * returns: <[this](#class-numeral)>
 
+#### numeral.finite()
+* returns: <[this](#class-numeral)>
+
 #### numeral.float()
 * returns: <[this](#class-numeral)>
 
 #### numeral.integer()
+* returns: <[this](#class-numeral)>
+
+#### numeral.safeInteger()
 * returns: <[this](#class-numeral)>
 
 #### numeral.abs()
