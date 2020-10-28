@@ -20,24 +20,8 @@ export default class Numeral {
   static isNatural = Helper.isNatural
   static isWhole = Helper.isWhole
 
-  static abs(value) {
-    return Math.abs(value)
-  }
-
-  static ceil(value) {
-    return Math.ceil(value)
-  }
-
-  static floor(value) {
-    return Math.floor(value)
-  }
-
-  static pow(value, exponent) {
-    return Math.pow(value, exponent)
-  }
-
-  static round(value) {
-    return Math.round(value)
+  static parse(value) {
+    return Helper.isNumber(value) ? value : value instanceof Numeral ? value.value : parseFloat(value)
   }
 
   static isEven(value) {
@@ -46,10 +30,6 @@ export default class Numeral {
 
   static isOdd(value) {
     return Helper.isInteger(value) && !!(value % 2)
-  }
-
-  static parse(value) {
-    return Helper.isNumber(value) ? value : value instanceof Numeral ? value.value : parseFloat(value)
   }
 
   static from(value) {
@@ -125,7 +105,7 @@ export default class Numeral {
   }
 
   setValue(value) {
-    this.value = value ? Numeral.parse(value) : Numeral.value
+    this.value = Helper.exists(value) ? Numeral.parse(value) : Numeral.value
     return this
   }
 
@@ -166,23 +146,23 @@ export default class Numeral {
   }
 
   abs() {
-    return this.setValue(Numeral.abs(this.value))
+    return this.setValue(Math.abs(this.value))
   }
 
   ceil() {
-    return this.setValue(Numeral.ceil(this.value))
+    return this.setValue(Math.ceil(this.value))
   }
 
   floor() {
-    return this.setValue(Numeral.floor(this.value))
-  }
-
-  pow(exponent) {
-    return this.setValue(Numeral.pow(this.value, exponent))
+    return this.setValue(Math.floor(this.value))
   }
 
   round() {
-    return this.setValue(Numeral.round(this.value))
+    return this.setValue(Math.round(this.value))
+  }
+
+  pow(exponent) {
+    return this.setValue(Math.pow(this.value, exponent))
   }
 
   reset() {

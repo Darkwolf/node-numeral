@@ -70,7 +70,7 @@ class Numeral {
   }
 
   setValue(value) {
-    this.value = value ? Numeral.parse(value) : Numeral.value
+    this.value = Helper.exists(value) ? Numeral.parse(value) : Numeral.value
     return this
   }
 
@@ -111,23 +111,23 @@ class Numeral {
   }
 
   abs() {
-    return this.setValue(Numeral.abs(this.value))
+    return this.setValue(Math.abs(this.value))
   }
 
   ceil() {
-    return this.setValue(Numeral.ceil(this.value))
+    return this.setValue(Math.ceil(this.value))
   }
 
   floor() {
-    return this.setValue(Numeral.floor(this.value))
-  }
-
-  pow(exponent) {
-    return this.setValue(Numeral.pow(this.value, exponent))
+    return this.setValue(Math.floor(this.value))
   }
 
   round() {
-    return this.setValue(Numeral.round(this.value))
+    return this.setValue(Math.round(this.value))
+  }
+
+  pow(exponent) {
+    return this.setValue(Math.pow(this.value, exponent))
   }
 
   reset() {
@@ -172,11 +172,6 @@ Numeral.isNonNegative = Helper.isNonNegative
 Numeral.isNonPositive = Helper.isNonPositive
 Numeral.isNatural = Helper.isNatural
 Numeral.isWhole = Helper.isWhole
-Numeral.abs = value => Math.abs(value)
-Numeral.ceil = value => Math.ceil(value)
-Numeral.floor = value => Math.floor(value)
-Numeral.pow = (value, exponent) => Math.pow(value, exponent)
-Numeral.round = value => Math.round(value)
 Numeral.parse = value => Helper.isNumber(value) ? value : value instanceof Numeral ? value.value : parseFloat(value)
 Numeral.isEven = value => Helper.isInteger(value) && !(value % 2)
 Numeral.isOdd = value => Helper.isInteger(value) && !!(value % 2)

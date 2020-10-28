@@ -24,27 +24,6 @@
 * `value` <[string][string] | [number][number]>
 * returns: <[number][number]>
 
-#### `static` Numeral.abs(value)
-* `value` <[number][number]>
-* returns: <[number][number]>
-
-#### `static` Numeral.ceil(value)
-* `value` <[number][number]>
-* returns: <[number][number]>
-
-#### `static` Numeral.floor(value)
-* `value` <[number][number]>
-* returns: <[number][number]>
-
-#### `static` Numeral.pow(value, exponent)
-* `value` <[number][number]>
-* `exponent` <[number][number]>
-* returns: <[number][number]>
-
-#### `static` Numeral.round(value)
-* `value` <[number][number]>
-* returns: <[number][number]>
-
 #### `static` Numeral.parse(value)
 * `value` <[string][string] | [number][number] | [Numeral](#class-numeral)>
 * returns: <[number][number]>
@@ -111,11 +90,11 @@ Equivalent to <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>
 * returns: <[boolean][boolean]>
 
 #### `static` Numeral.from(value)
-* `value` <[string][string] | [number][number]>
+* `value` <[number][number] | [string][string]> Defaults to `0`.
 * returns: <[Numeral](#class-numeral)>
 
 #### `init` new Numeral([value])
-* `value` <[number][number]>
+* `value` <[number][number] | [string][string]> Defaults to `0`.
 * returns: <[Numeral](#class-numeral)>
 
 #### `get` numeral.isFinite
@@ -204,11 +183,11 @@ Equivalent to <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>
 #### numeral.floor()
 * returns: <[this](#class-numeral)>
 
-#### numeral.pow(exponent)
-* `exponent` <[number][number]>
+#### numeral.round()
 * returns: <[this](#class-numeral)>
 
-#### numeral.round()
+#### numeral.pow(exponent)
+* `exponent` <[number][number]>
 * returns: <[this](#class-numeral)>
 
 #### numeral.reset()

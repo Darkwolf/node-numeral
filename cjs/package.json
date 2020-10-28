@@ -1,6 +1,6 @@
 {
   "name": "@darkwolf/numeral.cjs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Numeral",
   "main": "./lib/index.js",
   "engines": {
@@ -31,6 +31,6 @@
   },
   "homepage": "https://github.com/Darkwolf/node-numeral#readme",
   "dependencies": {
-    "@darkwolf/helper.cjs": "^1.0.4"
+    "@darkwolf/helper.cjs": "^1.0.5"
   }
 }

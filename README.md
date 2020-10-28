@@ -13,17 +13,17 @@ import Numeral from '@darkwolf/numeral.mjs'
 const Numeral = require('@darkwolf/numeral.cjs')
 
 const number = new Numeral(1024)
-  .add(512) // 1536
-  .subtract(256) // 1280
-  .multiply(128) // 163840
+  .add(512) // => 1536
+  .subtract(256) // => 1280
+  .multiply(128) // => 163840
   .divide(64)
-number.value // 2560
+number.value // => 2560
 const other = number
   .clone()
   .subtract(2048)
-number.value // 2560
-other.value // 512
-const sum = number + other // 3072
+number.value // => 2560
+other.value // => 512
+const sum = number + other // => 3072
 ```
 ## [API Documentation](https://github.com/Darkwolf/node-numeral/blob/master/docs/API.md)
 ## Contact Me
