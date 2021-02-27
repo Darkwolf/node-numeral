@@ -2,10 +2,15 @@ import Helper from '@darkwolf/helper.mjs'
 
 export default class Numeral {
   static value = 0
-  static finite = Helper.finite
-  static float = Helper.float
-  static integer = Helper.integer
-  static safeInteger = Helper.safeInteger
+  static toNumber = Helper.toNumber
+  static toFinite = Helper.toFinite
+  static toFloat = Helper.toFloat
+  static toInteger = Helper.toInteger
+  static toSafeInteger = Helper.toSafeInteger
+  static add = Helper.add
+  static subtract = Helper.subtract
+  static multiply = Helper.multiply
+  static divide = Helper.divide
   static isFinite = Helper.isFinite
   static isFloat = Helper.isFloat
   static isInteger = Helper.isInteger
@@ -19,10 +24,6 @@ export default class Numeral {
   static isNonPositive = Helper.isNonPositive
   static isNatural = Helper.isNatural
   static isWhole = Helper.isWhole
-
-  static parse(value) {
-    return Helper.isNumber(value) ? value : value instanceof Numeral ? value.value : parseFloat(value)
-  }
 
   static isEven(value) {
     return Helper.isInteger(value) && !(value % 2)
@@ -105,72 +106,78 @@ export default class Numeral {
   }
 
   setValue(value) {
-    this.value = Helper.exists(value) ? Numeral.parse(value) : Numeral.value
+    this.value = Helper.toNumber(value)
     return this
   }
 
-  add(value) {
-    this.value += value
+  add(addend) {
+    this.value += Helper.toNumber(addend)
     return this
   }
 
-  subtract(value) {
-    this.value -= value
+  subtract(subtrahend) {
+    this.value -= Helper.toNumber(subtrahend)
     return this
   }
 
-  multiply(value) {
-    this.value *= value
+  multiply(multiplicand) {
+    this.value *= Helper.toNumber(multiplicand)
     return this
   }
 
-  divide(value) {
-    this.value /= value
+  divide(divisor) {
+    this.value /= Helper.toNumber(divisor)
     return this
   }
 
-  finite() {
-    return this.setValue(Helper.finite(this.value))
+  toFinite() {
+    this.value = Helper.toFinite(this.value)
+    return this
   }
 
-  float() {
-    return this.setValue(Helper.float(this.value))
+  toFloat() {
+    this.value = Helper.toFloat(this.value)
+    return this
   }
 
-  integer() {
-    return this.setValue(Helper.integer(this.value))
+  toInteger() {
+    this.value = Helper.toInteger(this.value)
+    return this
   }
 
-  safeInteger() {
-    return this.setValue(Helper.safeInteger(this.value))
+  toSafeInteger() {
+    this.value = Helper.toSafeInteger(this.value)
+    return this
   }
 
   abs() {
-    return this.setValue(Math.abs(this.value))
+    this.value = Math.abs(this.value)
+    return this
   }
 
   ceil() {
-    return this.setValue(Math.ceil(this.value))
+    this.value = Math.ceil(this.value)
+    return this
   }
 
   floor() {
-    return this.setValue(Math.floor(this.value))
+    this.value = Math.floor(this.value)
+    return this
   }
 
   round() {
-    return this.setValue(Math.round(this.value))
+    this.value = Math.round(this.value)
+    return this
   }
 
   pow(exponent) {
-    return this.setValue(Math.pow(this.value, exponent))
+    this.value = Math.pow(this.value, Helper.toNumber(exponent))
+    return this
   }
 
   reset() {
-    return this.setValue()
-  }
-
-  clone() {
-    return new Numeral(this.value)
+    this.value = 0
+    return this
   }
 
   toString() {
@@ -183,6 +190,10 @@ export default class Numeral {
 
   toJSON() {
     return this.value
+  }
+
+  clone() {
+    return new Numeral(this.value)
   }
 
   [Symbol.toPrimitive](hint) {

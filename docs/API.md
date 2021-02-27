@@ -8,24 +8,45 @@
 #### `static` Numeral.value
 * returns: <[number][number]> Defaults to `0`.
 
-#### `static` Numeral.finite(value)
-* `value` <[string][string] | [number][number]>
+#### `static` Numeral.toNumber(value)
+* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
 * returns: <[number][number]>
 
-#### `static` Numeral.float(value)
-* `value` <[string][string] | [number][number]>
+#### `static` Numeral.toFinite(value)
+* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
 * returns: <[number][number]>
 
-#### `static` Numeral.integer(value)
-* `value` <[string][string] | [number][number]>
+#### `static` Numeral.toFloat(value)
+Alias for <[Numeral.toFinite(value)](#static-numeraltofinitevalue)>.
+* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
 * returns: <[number][number]>
 
-#### `static` Numeral.safeInteger(value)
-* `value` <[string][string] | [number][number]>
+#### `static` Numeral.toInteger(value)
+* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
 * returns: <[number][number]>
 
-#### `static` Numeral.parse(value)
-* `value` <[string][string] | [number][number] | [Numeral](#class-numeral)>
+#### `static` Numeral.toSafeInteger(value)
+* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
+* returns: <[number][number]>
+
+#### `static` Numeral.add(augend, addend)
+* `augend` <[number][number]>
+* `addend` <[number][number]>
+* returns: <[number][number]>
+
+#### `static` Numeral.subtract(minuend, subtrahend)
+* `minuend` <[number][number]>
+* `subtrahend` <[number][number]>
+* returns: <[number][number]>
+
+#### `static` Numeral.multiply(multiplier, multiplicand)
+* `multiplier` <[number][number]>
+* `multiplicand` <[number][number]>
+* returns: <[number][number]>
+
+#### `static` Numeral.divide(dividend, divisor)
+* `dividend` <[number][number]>
+* `divisor` <[number][number]>
 * returns: <[number][number]>
 
 #### `static` Numeral.isFinite(value)
@@ -33,7 +54,7 @@
 * returns: <[boolean][boolean]>
 
 #### `static` Numeral.isFloat(value)
-Equivalent to <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>
+Alias for <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>.
 * `value` <[any][Object]>
 * returns: <[boolean][boolean]>
 
@@ -90,11 +111,11 @@ Equivalent to <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>
 * returns: <[boolean][boolean]>
 
 #### `static` Numeral.from(value)
-* `value` <[number][number] | [string][string]> Defaults to `0`.
+* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`. Defaults to `0`.
 * returns: <[Numeral](#class-numeral)>
 
 #### `init` new Numeral([value])
-* `value` <[number][number] | [string][string]> Defaults to `0`.
+* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`. Defaults to `0`.
 * returns: <[Numeral](#class-numeral)>
 
 #### `get` numeral.isFinite
@@ -143,35 +164,35 @@ Equivalent to <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>
 * returns: <[boolean][boolean]>
 
 #### numeral.setValue(value)
-* `value` <[number][number]> Defaults to `0`.
+* `value` <[number][number]> If `undefined`, `null` or `NaN` will be return `0`. Defaults to `0`.
 * returns: <[this](#class-numeral)>
 
-#### numeral.add(value)
-* `value` <[number][number]>
+#### numeral.add(addend)
+* `addend` <[number][number]>
 * returns: <[this](#class-numeral)>
 
-#### numeral.subtract(value)
-* `value` <[number][number]>
+#### numeral.subtract(subtrahend)
+* `subtrahend` <[number][number]>
 * returns: <[this](#class-numeral)>
 
-#### numeral.multiply(value)
-* `value` <[number][number]>
+#### numeral.multiply(multiplicand)
+* `multiplicand` <[number][number]>
 * returns: <[this](#class-numeral)>
 
-#### numeral.divide(value)
-* `value` <[number][number]>
+#### numeral.divide(divisor)
+* `divisor` <[number][number]>
 * returns: <[this](#class-numeral)>
 
-#### numeral.finite()
+#### numeral.toFinite()
 * returns: <[this](#class-numeral)>
 
-#### numeral.float()
+#### numeral.toFloat()
 * returns: <[this](#class-numeral)>
 
-#### numeral.integer()
+#### numeral.toInteger()
 * returns: <[this](#class-numeral)>
 
-#### numeral.safeInteger()
+#### numeral.toSafeInteger()
 * returns: <[this](#class-numeral)>
 
 #### numeral.abs()

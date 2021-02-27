@@ -70,72 +70,78 @@ class Numeral {
   }
 
   setValue(value) {
-    this.value = Helper.exists(value) ? Numeral.parse(value) : Numeral.value
+    this.value = Helper.toNumber(value)
     return this
   }
 
-  add(value) {
-    this.value += value
+  add(addend) {
+    this.value += Helper.toNumber(addend)
     return this
   }
 
-  subtract(value) {
-    this.value -= value
+  subtract(subtrahend) {
+    this.value -= Helper.toNumber(subtrahend)
     return this
   }
 
-  multiply(value) {
-    this.value *= value
+  multiply(multiplicand) {
+    this.value *= Helper.toNumber(multiplicand)
     return this
   }
 
-  divide(value) {
-    this.value /= value
+  divide(divisor) {
+    this.value /= Helper.toNumber(divisor)
     return this
   }
 
-  finite() {
-    return this.setValue(Helper.finite(this.value))
+  toFinite() {
+    this.value = Helper.toFinite(this.value)
+    return this
   }
 
-  float() {
-    return this.setValue(Helper.float(this.value))
+  toFloat() {
+    this.value = Helper.toFloat(this.value)
+    return this
   }
 
-  integer() {
-    return this.setValue(Helper.integer(this.value))
+  toInteger() {
+    this.value = Helper.toInteger(this.value)
+    return this
   }
 
-  safeInteger() {
-    return this.setValue(Helper.safeInteger(this.value))
+  toSafeInteger() {
+    this.value = Helper.toSafeInteger(this.value)
+    return this
   }
 
   abs() {
-    return this.setValue(Math.abs(this.value))
+    this.value = Math.abs(this.value)
+    return this
   }
 
   ceil() {
-    return this.setValue(Math.ceil(this.value))
+    this.value = Math.ceil(this.value)
+    return this
   }
 
   floor() {
-    return this.setValue(Math.floor(this.value))
+    this.value = Math.floor(this.value)
+    return this
   }
 
   round() {
-    return this.setValue(Math.round(this.value))
+    this.value = Math.round(this.value)
+    return this
   }
 
   pow(exponent) {
-    return this.setValue(Math.pow(this.value, exponent))
+    this.value = Math.pow(this.value, Helper.toNumber(exponent))
+    return this
   }
 
   reset() {
-    return this.setValue()
-  }
-
-  clone() {
-    return new Numeral(this.value)
+    this.value = 0
+    return this
   }
 
   toString() {
@@ -150,15 +156,24 @@ class Numeral {
     return this.value
   }
 
+  clone() {
+    return new Numeral(this.value)
+  }
+
   [Symbol.toPrimitive](hint) {
     return hint === 'string' ? this.toString() : this.valueOf()
   }
 }
 Numeral.value = 0
-Numeral.finite = Helper.finite
-Numeral.float = Helper.float
-Numeral.integer = Helper.integer
-Numeral.safeInteger = Helper.safeInteger
+Numeral.toNumber = Helper.toNumber
+Numeral.toFinite = Helper.toFinite
+Numeral.toFloat = Helper.toFloat
+Numeral.toInteger = Helper.toInteger
+Numeral.toSafeInteger = Helper.toSafeInteger
+Numeral.add = Helper.add
+Numeral.subtract = Helper.subtract
+Numeral.multiply = Helper.multiply
+Numeral.divide = Helper.divide
 Numeral.isFinite = Helper.isFinite
 Numeral.isFloat = Helper.isFloat
 Numeral.isInteger = Helper.isInteger
@@ -172,7 +187,6 @@ Numeral.isNonNegative = Helper.isNonNegative
 Numeral.isNonPositive = Helper.isNonPositive
 Numeral.isNatural = Helper.isNatural
 Numeral.isWhole = Helper.isWhole
-Numeral.parse = value => Helper.isNumber(value) ? value : value instanceof Numeral ? value.value : parseFloat(value)
 Numeral.isEven = value => Helper.isInteger(value) && !(value % 2)
 Numeral.isOdd = value => Helper.isInteger(value) && !!(value % 2)
 Numeral.from = value => new Numeral(value)
