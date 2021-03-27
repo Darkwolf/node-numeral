@@ -1,8 +1,13 @@
 const Helper = require('@darkwolf/helper.cjs')
 
 class Numeral {
-  constructor(value) {
-    this.setValue(value)
+  constructor(...args) {
+    if (args.length) {
+      const [value] = args
+      this.setValue(value)
+    } else {
+      this.reset()
+    }
   }
 
   get isFinite() {
@@ -70,47 +75,27 @@ class Numeral {
   }
 
   setValue(value) {
-    this.value = Helper.toNumber(value)
+    this.value = Number(value)
     return this
   }
 
   add(addend) {
-    this.value += Helper.toNumber(addend)
+    this.value += Number(addend)
     return this
   }
 
   subtract(subtrahend) {
-    this.value -= Helper.toNumber(subtrahend)
+    this.value -= Number(subtrahend)
     return this
   }
 
   multiply(multiplicand) {
-    this.value *= Helper.toNumber(multiplicand)
+    this.value *= multiplicand
     return this
   }
 
   divide(divisor) {
-    this.value /= Helper.toNumber(divisor)
-    return this
-  }
-
-  toFinite() {
-    this.value = Helper.toFinite(this.value)
-    return this
-  }
-
-  toFloat() {
-    this.value = Helper.toFloat(this.value)
-    return this
-  }
-
-  toInteger() {
-    this.value = Helper.toInteger(this.value)
-    return this
-  }
-
-  toSafeInteger() {
-    this.value = Helper.toSafeInteger(this.value)
+    this.value /= divisor
     return this
   }
 
@@ -135,7 +120,7 @@ class Numeral {
   }
 
   pow(exponent) {
-    this.value = Math.pow(this.value, Helper.toNumber(exponent))
+    this.value = Math.pow(this.value, exponent)
     return this
   }
 
@@ -144,12 +129,28 @@ class Numeral {
     return this
   }
 
-  toString() {
-    return `${this.value}`
+  toFinite() {
+    return Helper.toFinite(this.value)
+  }
+
+  toFloat() {
+    return Helper.toFloat(this.value)
+  }
+
+  toInteger() {
+    return Helper.toInteger(this.value)
+  }
+
+  toSafeInteger() {
+    return Helper.toSafeInteger(this.value)
   }
 
   valueOf() {
     return this.value
+  }
+
+  toString(radix) {
+    return this.value.toString(radix)
   }
 
   toJSON() {

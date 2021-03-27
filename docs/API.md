@@ -9,24 +9,24 @@
 * returns: <[number][number]> Defaults to `0`.
 
 #### `static` Numeral.toNumber(value)
-* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
+* `value` <[any][Object]>
 * returns: <[number][number]>
 
 #### `static` Numeral.toFinite(value)
-* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
+* `value` <[any][Object]>
 * returns: <[number][number]>
 
 #### `static` Numeral.toFloat(value)
 Alias for <[Numeral.toFinite(value)](#static-numeraltofinitevalue)>.
-* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
+* `value` <[any][Object]>
 * returns: <[number][number]>
 
 #### `static` Numeral.toInteger(value)
-* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
+* `value` <[any][Object]>
 * returns: <[number][number]>
 
 #### `static` Numeral.toSafeInteger(value)
-* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`.
+* `value` <[any][Object]>
 * returns: <[number][number]>
 
 #### `static` Numeral.add(augend, addend)
@@ -111,11 +111,11 @@ Alias for <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>.
 * returns: <[boolean][boolean]>
 
 #### `static` Numeral.from(value)
-* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`. Defaults to `0`.
+* `value` <[any][Object]>
 * returns: <[Numeral](#class-numeral)>
 
 #### `init` new Numeral([value])
-* `value` <[any][Object]> If `undefined`, `null` or `NaN` will be return `0`. Defaults to `0`.
+* `value` <[any][Object]> If no arguments will be return `0`.
 * returns: <[Numeral](#class-numeral)>
 
 #### `get` numeral.isFinite
@@ -164,7 +164,7 @@ Alias for <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>.
 * returns: <[boolean][boolean]>
 
 #### numeral.setValue(value)
-* `value` <[number][number]> If `undefined`, `null` or `NaN` will be return `0`. Defaults to `0`.
+* `value` <[number][number]>
 * returns: <[this](#class-numeral)>
 
 #### numeral.add(addend)
@@ -181,18 +181,6 @@ Alias for <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>.
 
 #### numeral.divide(divisor)
 * `divisor` <[number][number]>
-* returns: <[this](#class-numeral)>
-
-#### numeral.toFinite()
-* returns: <[this](#class-numeral)>
-
-#### numeral.toFloat()
-* returns: <[this](#class-numeral)>
-
-#### numeral.toInteger()
-* returns: <[this](#class-numeral)>
-
-#### numeral.toSafeInteger()
 * returns: <[this](#class-numeral)>
 
 #### numeral.abs()
@@ -214,17 +202,30 @@ Alias for <[Numeral.isFinite(value)](#static-numeralisfinitevalue)>.
 #### numeral.reset()
 * returns: <[this](#class-numeral)>
 
-#### numeral.clone()
-* returns: <[Numeral](#class-numeral)>
+#### numeral.toFinite()
+* returns: <[number][number]>
 
-#### numeral.toString()
-* returns: <[string][string]>
+#### numeral.toFloat()
+* returns: <[number][number]>
+
+#### numeral.toInteger()
+* returns: <[number][number]>
+
+#### numeral.toSafeInteger()
+* returns: <[number][number]>
 
 #### numeral.valueOf()
 * returns: <[number][number]>
 
+#### numeral.toString([radix])
+* `radix` <[number][number]>
+* returns: <[string][string]>
+
 #### numeral.toJSON()
 * returns: <[number][number]>
+
+#### numeral.clone()
+* returns: <[Numeral](#class-numeral)>
 
 #### numeral\[Symbol.toPrimitive](hint)
 * `hint` <[string][string]> Must be `'string'`, `'number'` or `'default'`.

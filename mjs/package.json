@@ -1,6 +1,6 @@
 {
   "name": "@darkwolf/numeral.mjs",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Numeral",
   "type": "module",
   "exports": {
@@ -36,6 +36,6 @@
   },
   "homepage": "https://github.com/Darkwolf/node-numeral#readme",
   "dependencies": {
-    "@darkwolf/helper.mjs": "^1.1.0"
+    "@darkwolf/helper.mjs": "^1.1.1"
   }
 }
